@@ -1,93 +1,174 @@
-public class Cartes extends Plateau{
+import java.util.Arrays;
 
-    private int x;
-    private char[][] cases;
-    public Cartes(int x){
+public class Cartes {
 
-        switch (x){
+    private char[][] casesC;
+
+    public Cartes(int typeCarte){
+
+        switch (typeCarte){
             case 1:
-                this.cases = new char[3][2];
+                this.casesC = new char[3][2];
                 for (int i = 0; i < 3; i++) {
                     for (int j = 0; j < 2; j++) {
                         if (j == 0 && (i == 0 || i == 1 )){
-                            cases[i][j] = (char) (couleurAleatoire() + '0');
+                            casesC[i][j] = (char) (couleurAleatoire() + '0');
                         }else if (j == 1 && i == 2) {
-                            cases[i][j] = (char) (couleurAleatoire() + '0');
-                            while(cases[0][0] == cases[0][1] && cases[0][0] == cases[i][j]){
-                                cases[i][j] = (char) (couleurAleatoire() + '0');
+                            casesC[i][j] = (char) (couleurAleatoire() + '0');
+                            while(casesC[0][0] == casesC[0][1] && casesC[0][0] == casesC[i][j]){
+                                casesC[i][j] = (char) (couleurAleatoire() + '0');
                             }
                         }else {
-                            cases[i][j] = '-';
+                            casesC[i][j] = '-';
                         }
                     }
                 }
                 break;
             case 2:
-                this.cases = new char[3][2];
+                this.casesC = new char[3][2];
                 for (int i = 0; i < 3; i++) {
                     for (int j = 0; j < 2; j++) {
                         if (j == 1 && (i == 0 || i == 1 )){
-                            cases[i][j] = (char) (couleurAleatoire() + '0');
+                            casesC[i][j] = (char) (couleurAleatoire() + '0');
                         }else if (j == 0 && i == 2) {
-                            cases[i][j] = (char) (couleurAleatoire() + '0');
-                            while(cases[1][0] == cases[1][1] && cases[1][0] == cases[i][j]){
-                                cases[i][j] = (char) (couleurAleatoire() + '0');
+                            casesC[i][j] = (char) (couleurAleatoire() + '0');
+                            while(casesC[1][0] == casesC[1][1] && casesC[1][0] == casesC[i][j]){
+                                casesC[i][j] = (char) (couleurAleatoire() + '0');
                             }
                         }else {
-                            cases[i][j] = '-';
+                            casesC[i][j] = '-';
                         }
                     }
                 }
             break;
             case 3:
-                this.cases = new char[3][2];
+                this.casesC = new char[3][2];
                 for (int i = 0; i < 3; i++) {
                     for (int j = 0; j < 2; j++) {
                         if (j == 0 && (i == 1 || i == 2 )){
-                            cases[i][j] = (char) (couleurAleatoire() + '0');
+                            casesC[i][j] = (char) (couleurAleatoire() + '0');
                         }else if (j == 1 && i == 0) {
-                            cases[i][j] = (char) (couleurAleatoire() + '0');
-                            while(cases[2][0] == cases[1][0] && cases[2][0] == cases[i][j]){
-                                cases[i][j] = (char) (couleurAleatoire() + '0');
+                            casesC[i][j] = (char) (couleurAleatoire() + '0');
+                            while(casesC[2][0] == casesC[1][0] && casesC[2][0] == casesC[i][j]){
+                                casesC[i][j] = (char) (couleurAleatoire() + '0');
                             }
                         }else {
-                            cases[i][j] = '-';
+                            casesC[i][j] = '-';
                         }
                     }
                 }
             break;
             case 4:
-                this.cases = new char[3][2];
+                this.casesC = new char[3][2];
                 for (int i = 0; i < 3; i++) {
                     for (int j = 0; j < 2; j++) {
                         if (j == 1 && (i == 1 || i == 2 )){
-                            cases[i][j] = (char) (couleurAleatoire() + '0');
+                            casesC[i][j] = (char) (couleurAleatoire() + '0');
                         }else if (j == 0 && i == 0) {
-                            cases[i][j] = (char) (couleurAleatoire() + '0');
-                            while(cases[2][1] == cases[1][1] && cases[2][1] == cases[i][j]){
-                                cases[i][j] = (char) (couleurAleatoire() + '0');
+                            casesC[i][j] = (char) (couleurAleatoire() + '0');
+                            while(casesC[2][1] == casesC[1][1] && casesC[2][1] == casesC[i][j]){
+                                casesC[i][j] = (char) (couleurAleatoire() + '0');
                             }
                         }else {
-                            cases[i][j] = '-';
+                            casesC[i][j] = '-';
                         }
                     }
                 }
             break;
+            case 5:
+                this.casesC = new char[2][3];
+                for (int i = 0; i < 2; i++) {
+                    for (int j = 0; j < 3; j++) {
+                        if (i == 0 && (j == 1 || j == 2 )){
+                            casesC[i][j] = (char) (couleurAleatoire() + '0');
+                        }else if (i == 1 && j == 0) {
+                            casesC[i][j] = (char) (couleurAleatoire() + '0');
+                            while(casesC[0][2] == casesC[0][1] && casesC[0][2] == casesC[i][j]){
+                                casesC[i][j] = (char) (couleurAleatoire() + '0');
+                            }
+                        }else {
+                            casesC[i][j] = '-';
+                        }
+                    }
+                }
+                break;
+            case 6:
+                this.casesC = new char[2][3];
+                for (int i = 0; i < 2; i++) {
+                    for (int j = 0; j < 3; j++) {
+                        if (i == 1 && (j == 1 || j == 2 )){
+                            casesC[i][j] = (char) (couleurAleatoire() + '0');
+                        }else if (i == 0 && j == 0) {
+                            casesC[i][j] = (char) (couleurAleatoire() + '0');
+                            while(casesC[0][2] == casesC[0][1] && casesC[0][2] == casesC[i][j]){
+                                casesC[i][j] = (char) (couleurAleatoire() + '0');
+                            }
+                        }else {
+                            casesC[i][j] = '-';
+                        }
+                    }
+                }
+                break;
+            case 7:
+                this.casesC = new char[2][3];
+                for (int i = 0; i < 2; i++) {
+                    for (int j = 0; j < 3; j++) {
+                        if (i == 0 && (j == 0 || j == 1 )){
+                            casesC[i][j] = (char) (couleurAleatoire() + '0');
+                        }else if (i == 1 && j == 2) {
+                            casesC[i][j] = (char) (couleurAleatoire() + '0');
+                            while(casesC[0][0] == casesC[0][1] && casesC[0][0] == casesC[i][j]){
+                                casesC[i][j] = (char) (couleurAleatoire() + '0');
+                            }
+                        }else {
+                            casesC[i][j] = '-';
+                        }
+                    }
+                }
+                break;
+            case 8:
+                this.casesC = new char[2][3];
+                for (int i = 0; i < 2; i++) {
+                    for (int j = 0; j < 3; j++) {
+                        if (i == 1 && (j == 0 || j == 1 )){
+                            casesC[i][j] = (char) (couleurAleatoire() + '0');
+                        }else if (i == 0 && j == 2) {
+                            casesC[i][j] = (char) (couleurAleatoire() + '0');
+                            while(casesC[1][0] == casesC[1][1] && casesC[1][0] == casesC[i][j]){
+                                casesC[i][j] = (char) (couleurAleatoire() + '0');
+                            }
+                        }else {
+                            casesC[i][j] = '-';
+                        }
+                    }
+                }
+                break;
         }
 
     }
 
     public int couleurAleatoire(){
-        int couleurCase = (int) (Math.random() * 4) + 1;
-        return couleurCase;
+        return (int) (Math.random() * 4) + 1;
     }
 
     public void afficherCarte() {
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 2; j++) {
-                System.out.print(cases[i][j] + " ");
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.print(casesC[i][j] + " ");
             }
             System.out.println();
         }
+    }
+
+    // Méthode pour accéder aux casesC de la carte
+    public char[][] getCasesC() {
+        return casesC;
+    }
+
+    @Override
+    public String toString() {
+        return "Cartes{" +
+                "casesC=" + Arrays.toString(casesC) +
+                '}';
     }
 }
