@@ -1,9 +1,20 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Pioche {
 
+    Scanner scanner = new Scanner(System.in);
     private List<Cartes> pioche = new ArrayList<>();
+    private List<Cartes> cartesSorties = new ArrayList<>();
+
+    public void ajouterCarte(List<Cartes> carte) {
+        cartesSorties.addAll(carte);
+    }
+
+    public Cartes getCarte(int numeroCarte) {
+        return cartesSorties.get(numeroCarte);
+    }
 
     public void creationPioche() {
         for (int i = 0; i < 24; i++){
@@ -35,6 +46,14 @@ public class Pioche {
         return main;
     }
 
+    public char yesNo(){
+
+        System.out.println("avez-vous cree le partern d'une carte? ( y/n )");
+        char yesNo = scanner.next().charAt(0);
+
+        return yesNo;
+    }
+
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
@@ -57,10 +76,38 @@ public class Pioche {
                     result.append("\n     ");
                 }
             }
-            result.append("\n"); // Ajouter un retour à la ligne après chaque carte
+            result.append("\n");
             result.append("\n");
         }
 
+        for (Cartes carte : cartesSorties) {
+
+            int e =1;
+            e++;
+
+            result.append("Carte " + e + " :\n");
+
+
+
+
+            char[][] casesC = carte.getCasesC();
+            for (int i = 0; i < casesC.length; i++) {
+                result.append("[");
+                for (int j = 0; j < casesC[i].length; j++) {
+                    result.append(casesC[i][j]);
+                    if (j < casesC[i].length - 1) {
+                        result.append(", ");
+                    }
+
+                }
+                result.append("]");
+                result.append("\n");
+
+            }
+            result.append("\n");
+
+        }
         return result.toString();
     }
+
 }

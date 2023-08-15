@@ -152,8 +152,8 @@ public class Cartes {
     }
 
     public void afficherCarte() {
-        for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < 3; j++) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 2; j++) {
                 System.out.print(casesC[i][j] + " ");
             }
             System.out.println();

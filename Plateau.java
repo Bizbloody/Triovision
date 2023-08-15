@@ -31,31 +31,6 @@ public class Plateau {
         }
     }
 
-    // Méthode pour échanger un pion avec la case vide
-    public boolean Deplacement(int row1, int col1, int row2, int col2) {
-        // Vérifier si les coordonnées sont valides
-        if (row2 < 0 || row2 > 3 || col2 < 0 || col2 > 3) {
-            System.out.println("Coordonnées invalides. Veuillez entrer des coordonnées entre 0 et 3.");
-            return false;
-        }
-
-        // Vérifier si la case d'arrivée est vide
-        if (casesP[row2][col2] != '-') {
-            System.out.println("La case sélectionnée n'est pas vide. Veuillez choisir une case vide.");
-            return false;
-        }
-        // Vérifier si la case de depart a un pion
-        if (casesP[row1][col1] == '-') {
-            System.out.println("Il n'y a pas de pion sur la case. Veuillez choisir une case avec un pion.");
-            return false;
-        }
-
-        // Échanger le pion avec la case vide
-        casesP[row2][col2] = casesP[row1][col1];
-        casesP[row1][col1] = '-';
-        return true;
-    }
-
     // Méthode pour vérifier si le modèle existe dans le plateau
     public boolean verifierPattern(Cartes carte) {
         char[][] patternCarte = carte.getCasesC();
@@ -85,6 +60,9 @@ public class Plateau {
         return false;
     }
 
+    public char[][] getCasesP() {
+        return casesP;
+    }
 
 }
 
