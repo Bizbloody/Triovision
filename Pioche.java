@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+//TODO Faire un constructeur car les fonctions ce marche dessus (+ d'info dans message commmit)
+
 public class Pioche {
 
     Scanner scanner = new Scanner(System.in);

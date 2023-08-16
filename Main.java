@@ -22,6 +22,8 @@ public class Main {
         char yesNo;
         int carte;
 
+/////////TODO metre tous ça ↓↓↓ dans des fonctions dans Joueur car le main eest beaucoup trop long
+
         while (nbj < 1 || nbj > 2){
             System.out.println("1 joueur ou 2 joueurs?");
             nbj = scanner.nextInt();
@@ -35,6 +37,7 @@ public class Main {
 
             while (!cartesSorties.cartesVide()){
 
+                System.out.println("--------------------------------------------------------------------------------------------------");
                 plateau.afficherPlateau();
                 System.out.print(cartesSorties);
                 System.out.println("ligne du pion de depart");
@@ -88,6 +91,9 @@ public class Main {
             while (!cartesSorties.cartesVide()){
 
                 if(joueur1.getPlaying() == 1){
+
+                    System.out.println("--------------------------------------------------------------------------------------------------");
+                    System.out.println("DEBUT TOUR JOUEUR 1");
                     plateau.afficherPlateau();
                     System.out.print(cartesSorties);
                     System.out.println("ligne du pion de depart");
@@ -135,6 +141,9 @@ public class Main {
 
                     }
                 } else {
+
+                    System.out.println("--------------------------------------------------------------------------------------------------");
+                    System.out.println("DEBUT TOUR JOUEUR 2");
                     plateau.afficherPlateau();
                     System.out.print(cartesSorties);
                     System.out.println("ligne du pion de depart");
@@ -164,10 +173,15 @@ public class Main {
                         boolean patternExists = plateau.verifierPattern(cartesSorties.getCarte(carte));
 
                         if (patternExists) {
+
                             System.out.println("le pattern exist, +1 point !");
                             joueur2.setPoint(joueur2.getPoint() +1);
+                            cartesSorties.retirerCarte(carte);
+
                         } else {
+
                             System.out.println("le pattern exist pas");
+
                         }
 
                     } else {
@@ -178,7 +192,11 @@ public class Main {
                     }
                 }
             }
+            if (joueur1.getPoint() > joueur2.getPoint()){
+                System.out.println("Joueur 1 à gagner avec " + joueur1.getPoint() +" contre "+ joueur2.getPoint()+" pour le joueur 2");
+            }else {
+                System.out.println("Joueur 2 à gagner avec " + joueur2.getPoint() +" contre "+ joueur1.getPoint()+" pour le joueur 1");
+            }
         }
-
     }
 }
