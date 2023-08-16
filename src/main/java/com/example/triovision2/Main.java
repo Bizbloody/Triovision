@@ -1,4 +1,4 @@
-package com.example.triovision2;
+package src.main.java.com.example.triovision2;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

@@ -1,4 +1,4 @@
-package com.example.triovision2;
+package src.main.java.com.example.triovision2;
 
 
 import javafx.scene.Node;
@@ -13,28 +13,29 @@ import javafx.scene.shape.Circle;
 
     public class Controller {
 
-        private Joueur joueur; // Instance de Joueur
-        private Plateau plateau; // Instance de Plateau
+        private Joueur joueur1;
+        private Joueur joueur2;
+        private Plateau plateau;
         private Circle[][] cercles = new Circle[4][4];
 
-        // ... autres déclarations et méthodes ...
+
 
         public void initialize() {
-            joueur = new Joueur(); // Initialisez votre instance de Joueur
-            plateau = new Plateau(); // Initialisez votre instance de Plateau
-            char[][] cases = plateau.getCasesP(); // Obtenez les cases du plateau
+            joueur1 = new Joueur(0,1);
+            joueur2 = new Joueur(0,1);
+            plateau = new Plateau();
+            char[][] cases = plateau.getCasesP();
 
             for (int row = 0; row < cases.length; row++) {
                 for (int col = 0; col < cases[row].length; col++) {
                     cercles[row][col] = getCercleAt(row, col);
-                    // Ajoutez un System.out.println pour afficher les informations sur chaque nœud
-                    System.out.println("Row: " + row + " | Col: " + col + " | Circle: " + cercles[row][col]);
+                    //System.out.println("Row: " + row + " | Col: " + col + " | Circle: " + cercles[row][col]);
 
                 }
             }
         }
 
-        // ... autres méthodes ...
+
 
 
     private double initialCircleX;
@@ -116,7 +117,7 @@ import javafx.scene.shape.Circle;
             int sourceCol = GridPane.getColumnIndex(draggedCircle);
 
             // Utilisez votre méthode de déplacement de pion ici
-            boolean deplacementReussi = joueur.deplacerPion(plateau, sourceRow, sourceCol, targetRow, targetCol);
+            boolean deplacementReussi = joueur1.deplacerPion(plateau, sourceRow, sourceCol, targetRow, targetCol);
 
             if (deplacementReussi) {
                 // Obtenez les cercles à partir des positions source et cible dans la grille GridPane

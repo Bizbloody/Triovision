@@ -1,3 +1,5 @@
+package src.main.java.com.example.triovision2;
+
 import java.util.Arrays;
 ///TODO malgré les sout je trouve pas le probleme ( il peut y avoir 3 fois la meme couleur ) il est surement dans pioche
 public class Cartes {

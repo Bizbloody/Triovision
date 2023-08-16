@@ -1,3 +1,5 @@
+package src.main.java.com.example.triovision2;
+
 public class Plateau {
     private char[][] casesP;
 
