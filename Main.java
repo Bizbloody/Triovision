@@ -5,6 +5,7 @@ public class Main {
 
         Pioche pioche = new Pioche();
         Pioche cartesSorties = new Pioche();
+
         pioche.creationPioche();
         cartesSorties.ajouterCarte(pioche.retirerMain());
         Plateau plateau = new Plateau();
@@ -32,7 +33,7 @@ public class Main {
 
             Joueur joueur1 = new Joueur(0, 1);
 
-            while (joueur1.point != 12){
+            while (!cartesSorties.cartesVide()){
 
                 plateau.afficherPlateau();
                 System.out.print(cartesSorties);
@@ -47,11 +48,11 @@ public class Main {
 
                 joueur1.deplacerPion(plateau,lignePionDepart, colonePionDepart, lignePionArrive, colonePionArrive);
 
-                System.out.println("avez-vous crée le partern d'une carte? ( y/n )");
+                System.out.println("avez-vous crée sur le plateau le partern d'une carte? ( y/n )");
                 yesNo = scanner.next().charAt(0);
 
                 while (yesNo != 'y' && yesNo != 'Y' && yesNo != 'n' && yesNo != 'N'){
-                    System.out.println("avez-vous crée le partern d'une carte? ( y/n )");
+                    System.out.println("avez-vous crée sur le plateau le partern d'une carte? ( y/n )");
                     yesNo = scanner.next().charAt(0);
                 }
 
@@ -63,13 +64,19 @@ public class Main {
                     boolean patternExists = plateau.verifierPattern(cartesSorties.getCarte(carte));
 
                     if (patternExists) {
+
                         System.out.println("le pattern exist, +1 point !");
                         joueur1.setPoint(joueur1.getPoint() +1);
+                        cartesSorties.retirerCarte(carte);
+
                     } else {
+
                         System.out.println("le pattern exist pas");
+
                     }
                 }
             }
+            System.out.println("Bravo, tu as fait toutes les cartes et tu as remporté la partie!");
 
         } else {
 
@@ -78,7 +85,7 @@ public class Main {
 
 
 
-            while (joueur1.point != 12 || joueur2.point != 12){
+            while (!cartesSorties.cartesVide()){
 
                 if(joueur1.getPlaying() == 1){
                     plateau.afficherPlateau();
@@ -94,11 +101,11 @@ public class Main {
 
                     joueur1.deplacerPion(plateau,lignePionDepart, colonePionDepart, lignePionArrive, colonePionArrive);
 
-                    System.out.println("avez-vous crée le partern d'une carte? ( y/n )");
+                    System.out.println("avez-vous crée sur le plateau le partern d'une carte? ( y/n )");
                     yesNo = scanner.next().charAt(0);
 
                     while (yesNo != 'y' && yesNo != 'Y' && yesNo != 'n' && yesNo != 'N'){
-                        System.out.println("avez-vous crée le partern d'une carte? ( y/n )");
+                        System.out.println("avez-vous crée sur le plateau le partern d'une carte? ( y/n )");
                         yesNo = scanner.next().charAt(0);
                     }
 
@@ -110,10 +117,15 @@ public class Main {
                         boolean patternExists = plateau.verifierPattern(cartesSorties.getCarte(carte));
 
                         if (patternExists) {
+
                             System.out.println("le pattern exist, +1 point !");
                             joueur1.setPoint(joueur1.getPoint() +1);
+                            cartesSorties.retirerCarte(carte);
+
                         } else {
+
                             System.out.println("le pattern exist pas");
+
                         }
 
                     } else {
@@ -136,11 +148,11 @@ public class Main {
 
                     joueur2.deplacerPion(plateau,lignePionDepart, colonePionDepart, lignePionArrive, colonePionArrive);
 
-                    System.out.println("avez-vous crée le partern d'une carte? ( y/n )");
+                    System.out.println("avez-vous crée sur le plateau le partern d'une carte? ( y/n )");
                     yesNo = scanner.next().charAt(0);
 
                     while (yesNo != 'y' && yesNo != 'Y' && yesNo != 'n' && yesNo != 'N'){
-                        System.out.println("avez-vous crée le partern d'une carte? ( y/n )");
+                        System.out.println("avez-vous crée sur le plateau le partern d'une carte? ( y/n )");
                         yesNo = scanner.next().charAt(0);
                     }
 
@@ -166,14 +178,7 @@ public class Main {
                     }
                 }
             }
-
-
-        System.out.print(cartesSorties);
-
-        cartesSorties.getCarte(1).afficherCarte();
-
+        }
 
     }
-
-}
 }

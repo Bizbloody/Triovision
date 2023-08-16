@@ -64,5 +64,4 @@ public class Joueur{
         this.playing = playing;
     }
 
-
 }

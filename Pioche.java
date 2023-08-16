@@ -12,12 +12,8 @@ public class Pioche {
         cartesSorties.addAll(carte);
     }
 
-    public Cartes getCarte(int numeroCarte) {
-        return cartesSorties.get(numeroCarte);
-    }
-
     public void creationPioche() {
-        for (int i = 0; i < 24; i++){
+        for (int i = 0; i < 12; i++){
             this.pioche.add(new Cartes(cartesAleatoire()));
         }
     }
@@ -27,18 +23,26 @@ public class Pioche {
     }
 
     // Retirer une carte aléatoire de la pioche
-    public Cartes retirerCarte() {
+    public Cartes retirerCartePioche() {
         if (!pioche.isEmpty()) {
             return pioche.remove((int) (Math.random() * pioche.size()));
         }
         return null; // Pioche vide
     }
 
+    public Cartes retirerCarte(int index) {
+        return cartesSorties.remove(index);
+    }
+
+    public boolean cartesVide(){
+        return cartesSorties.isEmpty();
+    }
+
     // Retirer plusieurs cartes (main) de la pioche
     public List<Cartes> retirerMain() {
         List<Cartes> main = new ArrayList<>();
         for (int i = 0; i < 12; i++) {
-            Cartes carte = retirerCarte();
+            Cartes carte = retirerCartePioche();
             if (carte != null) {
                 main.add(carte);
             }
@@ -57,6 +61,7 @@ public class Pioche {
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
+        int e = 0;
 
         for (Cartes carte : pioche) {
             char[][] casesC = carte.getCasesC();
@@ -80,15 +85,11 @@ public class Pioche {
             result.append("\n");
         }
 
-        for (Cartes carte : cartesSorties) {
 
-            int e =1;
+        for (Cartes carte : cartesSorties) {
             e++;
 
             result.append("Carte " + e + " :\n");
-
-
-
 
             char[][] casesC = carte.getCasesC();
             for (int i = 0; i < casesC.length; i++) {
@@ -98,16 +99,17 @@ public class Pioche {
                     if (j < casesC[i].length - 1) {
                         result.append(", ");
                     }
-
                 }
                 result.append("]");
                 result.append("\n");
-
             }
             result.append("\n");
-
         }
         return result.toString();
+    }
+
+    public Cartes getCarte(int numeroCarte) {
+        return cartesSorties.get(numeroCarte);
     }
 
 }
