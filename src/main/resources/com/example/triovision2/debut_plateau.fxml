@@ -40,7 +40,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 
-<VBox prefHeight="886.0" prefWidth="1134.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<VBox prefHeight="886.0" prefWidth="1134.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.triovision2.Controller">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="816.0" prefWidth="1065.0" VBox.vgrow="ALWAYS">
          <children>
@@ -58,35 +58,35 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Circle fx:id="green1" fill="#1fff38" onDragDone="#hello" radius="32.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                  <Circle fx:id="green1" fill="#1fff38" onDragDetected="#onDragDetected" onDragDone="#onDragDone" onDragDropped="#onDragDropped" onDragOver="#onDragOver" radius="32.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Circle>
-                  <Circle fx:id="green2" fill="#1fff27" onDragDropped="#hello" radius="32.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                  <Circle fx:id="green2" fill="#1fff27" onDragDetected="#onDragDetected" onDragDone="#onDragDone" onDragDropped="#onDragDropped" onDragOver="#onDragOver" radius="32.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Circle>
-                  <Circle fx:id="red2" fill="#ff1f1f" radius="32.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                  <Circle fx:id="red2" fill="#ff1f1f" onDragDetected="#onDragDetected" onDragDone="#onDragDone" onDragDropped="#onDragDropped" onDragOver="#onDragOver" radius="32.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Circle>
-                  <Circle fx:id="red1" fill="#ff1f1f" radius="32.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                  <Circle fx:id="red1" fill="#ff1f1f" onDragDetected="#onDragDetected" onDragDone="#onDragDone" onDragDropped="#onDragDropped" onDragOver="#onDragOver" radius="32.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                      <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Circle>
+                  <Circle fx:id="blue2" fill="#1f2bff" onDragDetected="#onDragDetected" onDragDone="#onDragDone" onDragDropped="#onDragDropped" onDragOver="#onDragOver" radius="32.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Circle>
-                  <Circle fx:id="blue2" fill="#1f2bff" radius="32.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                  <Circle fx:id="blue1" fill="#1f32ff" onDragDetected="#onDragDetected" onDragDone="#onDragDone" onDragDropped="#onDragDropped" onDragOver="#onDragOver" radius="32.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Circle>
-                  <Circle fx:id="blue1" fill="#1f32ff" radius="32.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                  <Circle fx:id="yellow1" fill="#f3ff1f" onDragDetected="#onDragDetected" onDragDone="#onDragDone" onDragDropped="#onDragDropped" onDragOver="#onDragOver" radius="32.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Circle>
-                  <Circle fx:id="yellow1" fill="#f3ff1f" radius="32.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor></Circle>
-                  <Circle fx:id="yellow2" fill="#f0ff1f" radius="32.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                  <Circle fx:id="yellow2" fill="#f0ff1f" onDragDetected="#onDragDetected" onDragDone="#onDragDone" onDragDropped="#onDragDropped" onDragOver="#onDragOver" radius="32.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Circle>

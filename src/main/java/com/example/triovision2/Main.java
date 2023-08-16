@@ -1,7 +1,14 @@
-import java.util.Scanner;
+package com.example.triovision2;
 
-public class Main {
-    public static void main(String[] args) {
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class Main extends Application{
+
+        /*public static void main(String[] args) {
 
         Pioche pioche = new Pioche();
         Pioche cartesSorties = new Pioche();
@@ -198,5 +205,24 @@ public class Main {
                 System.out.println("Joueur 2 à gagner avec " + joueur2.getPoint() +" contre "+ joueur1.getPoint()+" pour le joueur 1");
             }
         }
+    }*/
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        // Charger le fichier FXML
+        Parent root = FXMLLoader.load(getClass().getResource("debut_plateau.fxml"));
+
+        // Créer une scène
+        Scene scene = new Scene(root);
+
+        // Configurer le stage (fenêtre)
+        primaryStage.setTitle("Votre Application");
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+
 }
